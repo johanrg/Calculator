@@ -10,8 +10,8 @@
  */
 package com.github.johanrg.calculator;
 
-import com.github.johanrg.calculator.expressionengine.Expression;
-import com.github.johanrg.calculator.expressionengine.ParserException;
+import com.github.johanrg.expressionengine.Expression;
+import com.github.johanrg.expressionengine.ParserException;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -24,9 +24,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-
-
-import java.text.ParseException;
 
 public class Main extends Application {
 

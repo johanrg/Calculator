@@ -1,11 +1,11 @@
-package com.github.johanrg.calculator.expressionengine;
+package com.github.johanrg.expressionengine;
 
 /**
  * Created by Johan on 2016-05-28.
  */
-
 enum TokenType {
     NONE,
+    ASSIGNMENT,
     PLUS,
     MINUS,
     MULTIPLY,
@@ -14,5 +14,6 @@ enum TokenType {
     CARET,
     OPEN_PARENTHESES,
     CLOSE_PARENTHESES,
-    NUMBER
+    NUMBER,
+    IDENTIFIER;
 }

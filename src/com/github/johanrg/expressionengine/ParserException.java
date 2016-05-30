@@ -1,4 +1,4 @@
-package com.github.johanrg.calculator.expressionengine;
+package com.github.johanrg.expressionengine;
 
 import java.text.ParseException;
 
