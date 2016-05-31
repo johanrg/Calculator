@@ -5,11 +5,14 @@ package com.github.johanrg.expressionengine;
  */
 
 public class Expression {
-    public Expression(String text) throws ParserException {
-        Parser parse = new Parser(text);
-        for(Token token: parse) {
-            System.out.println(token);
-        }
+    private Lexer lex;
 
+    public Expression(String text) throws ExpressionException {
+        Parser parse = new Parser(text);
+        lex = new Lexer(parse);
+    }
+
+    public double getValue() {
+        return lex.getValue();
     }
 }

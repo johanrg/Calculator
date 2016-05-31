@@ -58,7 +58,7 @@ class Parser implements Iterable<Token> {
         }
     }
 
-    private Token getNumber(char c, boolean positiveNumber) throws ParserException {
+    private Token getNumber(char c, boolean positiveNumber) throws ExpressionException {
         StringBuilder number = new StringBuilder();
         int storeColumn = column;
 
@@ -99,10 +99,10 @@ class Parser implements Iterable<Token> {
         lastToken = token.getType();
     }
 
-    private void parse() throws ParserException {
+    private void parse() throws ExpressionException {
     }
 
-    Parser(String text) throws ParserException {
+    Parser(String text) throws ExpressionException {
         // The added 0 to the end of the string makes us not having to test the if the string has reached it's end
         // everywhere. A valid character will always have at least a 0 that follows after it and this can be checked in
         // one place and only when no other valid characters are left.
@@ -169,7 +169,7 @@ class Parser implements Iterable<Token> {
                 break;
 
             } else {
-                throw new ParserException(String.format("Syntax error: '%c' on line %d column %d", c, line, column));
+                throw new ExpressionException(String.format("Syntax error: '%c' on line %d column %d", c, line, column));
             }
         }
     }

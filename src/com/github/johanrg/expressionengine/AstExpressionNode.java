@@ -3,24 +3,42 @@ package com.github.johanrg.expressionengine;
 /**
  * Created by Johan 5/30/2016.
  */
-public class AstExpressionNode {
+class AstExpressionNode {
 
-    private final TokenType type;
-    private final double number;
+    private final Token token;
     private final AstExpressionNode leftExpression;
     private final AstExpressionNode rightExpression;
 
-    AstExpressionNode(TokenType type, double number) {
-        this.type = type;
-        this.number = number;
+    Token getToken() {
+        return token;
+    }
+
+    public double getNumber() {
+        return token.getDouble();
+    }
+
+    public AstExpressionNode getLeftExpression() {
+        return leftExpression;
+    }
+
+    public AstExpressionNode getRightExpression() {
+        return rightExpression;
+    }
+
+    AstExpressionNode(Token token) {
+        this.token = token;
         this.leftExpression = null;
         this.rightExpression = null;
     }
 
-    AstExpressionNode(TokenType type, AstExpressionNode leftExpression, AstExpressionNode rightExpression) {
-        this.type = type;
-        this.number = 0;
+    AstExpressionNode(Token token, AstExpressionNode leftExpression, AstExpressionNode rightExpression) {
+        this.token = token;
         this.leftExpression = leftExpression;
         this.rightExpression = rightExpression;
+    }
+
+    @Override
+    public String toString() {
+        return token.getType().toString() + " " + Double.toString(token.getDouble());
     }
 }

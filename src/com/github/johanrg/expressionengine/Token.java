@@ -3,7 +3,6 @@ package com.github.johanrg.expressionengine;
 /**
  * Created by Johan on 2016-05-28.
  */
-
 class Token {
     private TokenType type;
     private int intNumber;
@@ -46,11 +45,11 @@ class Token {
         StringBuilder info = new StringBuilder();
         info.append(type.toString());
         if (type == TokenType.NUMBER) {
-            info.append(" " + Double.toString(doubleNumber));
+            info.append(" ").append(Double.toString(doubleNumber));
         } else if (type == TokenType.IDENTIFIER) {
-            info.append(" " + identifier);
+            info.append(" ").append(identifier);
         }
-        info.append(" @" + Integer.toString(lineNumber) + "," + Integer.toString(columnNumber));
+        info.append(" @").append(Integer.toString(lineNumber)).append(",").append(Integer.toString(columnNumber));
 
         return info.toString();
     }

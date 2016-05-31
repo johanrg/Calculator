@@ -4,16 +4,40 @@ package com.github.johanrg.expressionengine;
  * Created by Johan on 2016-05-28.
  */
 enum TokenType {
-    NONE,
-    ASSIGNMENT,
-    PLUS,
-    MINUS,
-    MULTIPLY,
-    DIVIDE,
-    MODULUS,
-    CARET,
-    OPEN_PARENTHESES,
-    CLOSE_PARENTHESES,
-    NUMBER,
-    IDENTIFIER;
+    NONE(false, 0),
+    NUMBER(false, 0),
+    IDENTIFIER(false, 0),
+
+    OPEN_PARENTHESES(true, 1),
+    CLOSE_PARENTHESES(true, 1),
+
+    MULTIPLY(true, 4),
+    DIVIDE(true, 4),
+    MODULUS(true, 4),
+    CARET(true, 4),
+
+    PLUS(true, 5),
+    MINUS(true, 5),
+
+    ASSIGNMENT(true, 15);
+
+    private final boolean operator;
+    private final int precedence;
+
+    TokenType(boolean isOperator, int precedence) {
+        this.operator = isOperator;
+        this.precedence = precedence;
+    }
+
+    boolean isOperator() {
+        return operator;
+    }
+
+    boolean isDigit() {
+        return this == NUMBER;
+    }
+
+    int getPrecedence() {
+        return precedence;
+    }
 }

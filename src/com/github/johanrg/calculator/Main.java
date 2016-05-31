@@ -11,7 +11,7 @@
 package com.github.johanrg.calculator;
 
 import com.github.johanrg.expressionengine.Expression;
-import com.github.johanrg.expressionengine.ParserException;
+import com.github.johanrg.expressionengine.ExpressionException;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -83,7 +83,8 @@ public class Main extends Application {
     private void onCalculateButtonClick() {
         try {
             Expression expression = new Expression(expressionTextArea.getText());
-        } catch(ParserException e) {
+            resultTextArea.insertText(resultTextArea.getLength(), Double.toString(expression.getValue()) + "\n");
+        } catch(ExpressionException e) {
             resultTextArea.insertText(resultTextArea.getLength(), e.getMessage() + "\n");
         }
     }
