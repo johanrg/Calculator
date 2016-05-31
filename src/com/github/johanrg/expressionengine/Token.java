@@ -44,7 +44,7 @@ class Token {
     public String toString() {
         StringBuilder info = new StringBuilder();
         info.append(type.toString());
-        if (type == TokenType.NUMBER) {
+        if (type == TokenType.TYPE_DOUBLE) {
             info.append(" ").append(Double.toString(doubleNumber));
         } else if (type == TokenType.IDENTIFIER) {
             info.append(" ").append(identifier);

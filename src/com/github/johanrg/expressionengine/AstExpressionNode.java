@@ -3,8 +3,8 @@ package com.github.johanrg.expressionengine;
 /**
  * Created by Johan 5/30/2016.
  */
-class AstExpressionNode {
 
+class AstExpressionNode {
     private final Token token;
     private final AstExpressionNode leftExpression;
     private final AstExpressionNode rightExpression;
@@ -13,15 +13,11 @@ class AstExpressionNode {
         return token;
     }
 
-    public double getNumber() {
-        return token.getDouble();
-    }
-
-    public AstExpressionNode getLeftExpression() {
+    AstExpressionNode getLeftExpression() {
         return leftExpression;
     }
 
-    public AstExpressionNode getRightExpression() {
+    AstExpressionNode getRightExpression() {
         return rightExpression;
     }
 

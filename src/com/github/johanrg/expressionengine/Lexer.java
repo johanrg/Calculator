@@ -88,31 +88,33 @@ class Lexer {
             AstExpressionNode rightExpression = solveExpression(node.getRightExpression());
 
             double result = 0;
+            double left = leftExpression.getToken().getDouble();
+            double right = rightExpression.getToken().getDouble();
             switch (node.getToken().getType()) {
                 case MULTIPLY:
-                    result = leftExpression.getNumber() * rightExpression.getNumber();
+                    result = left * right;
                     break;
                 case DIVIDE:
-                    result = leftExpression.getNumber() / rightExpression.getNumber();
+                    result = left / right;
                     break;
                 case MODULUS:
-                    result = leftExpression.getNumber() % rightExpression.getNumber();
+                    result = left % right;
                     break;
                 case CARET:
-                    result = Math.pow(leftExpression.getNumber(), rightExpression.getNumber());
+                    result = Math.pow(left, right);
                     break;
 
                 case PLUS:
-                    result = leftExpression.getNumber() + rightExpression.getNumber();
+                    result = left + right;
                     break;
                 case MINUS:
-                    result = leftExpression.getNumber() - rightExpression.getNumber();
+                    result = left - right;
                     break;
 
                 default:
                     assert false;
             }
-            return new AstExpressionNode(new Token(TokenType.NUMBER, result, 0, 0));
+            return new AstExpressionNode(new Token(TokenType.TYPE_DOUBLE, result, 0, 0));
         }
 
         return null;

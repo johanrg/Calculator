@@ -5,7 +5,8 @@ package com.github.johanrg.expressionengine;
  */
 enum TokenType {
     NONE(false, 0),
-    NUMBER(false, 0),
+    TYPE_INT(false, 0),
+    TYPE_DOUBLE(false, 0),
     IDENTIFIER(false, 0),
 
     OPEN_PARENTHESES(true, 1),
@@ -34,7 +35,7 @@ enum TokenType {
     }
 
     boolean isDigit() {
-        return this == NUMBER;
+        return this == TYPE_INT || this == TYPE_DOUBLE;
     }
 
     int getPrecedence() {

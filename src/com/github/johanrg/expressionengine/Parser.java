@@ -69,9 +69,9 @@ class Parser implements Iterable<Token> {
         }
 
         if (positiveNumber) {
-            return new Token(TokenType.NUMBER, Double.parseDouble(number.toString()), line, storeColumn);
+            return new Token(TokenType.TYPE_DOUBLE, Double.parseDouble(number.toString()), line, storeColumn);
         } else {
-            return new Token(TokenType.NUMBER, -Double.parseDouble(number.toString()), line, storeColumn);
+            return new Token(TokenType.TYPE_DOUBLE, -Double.parseDouble(number.toString()), line, storeColumn);
         }
     }
 
@@ -115,7 +115,7 @@ class Parser implements Iterable<Token> {
 
             } else if (c == '+') {
                 eatTheChar();
-                boolean mustBeOperator = (lastToken == TokenType.NUMBER);
+                boolean mustBeOperator = (lastToken == TokenType.TYPE_DOUBLE);
                 if (!mustBeOperator && isNumber(peekAtChar())) {
                     addToken(getNumber(c, true));
                 } else {
@@ -123,7 +123,7 @@ class Parser implements Iterable<Token> {
                 }
 
             } else if (c == '-') {
-                boolean mustBeOperator = (lastToken == TokenType.NUMBER);
+                boolean mustBeOperator = (lastToken == TokenType.TYPE_DOUBLE);
                 if (!mustBeOperator && isNumber(peekAtChar())) {
                     addToken(getNumber(c, false));
                 } else {
