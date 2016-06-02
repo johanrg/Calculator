@@ -9,7 +9,7 @@ class Lexer {
     private final Parser parser;
     private double value;
 
-    public double getValue() {
+    double getValue() {
         return value;
     }
 
@@ -90,6 +90,7 @@ class Lexer {
             double result = 0;
             double left = leftExpression.getToken().getDouble();
             double right = rightExpression.getToken().getDouble();
+
             switch (node.getToken().getType()) {
                 case MULTIPLY:
                     result = left * right;

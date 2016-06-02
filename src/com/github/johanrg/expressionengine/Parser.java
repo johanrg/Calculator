@@ -41,12 +41,11 @@ class Parser implements Iterable<Token> {
         ++column;
     }
 
-    private char getAndEatTheChar() {
-        char c = peekAtChar();
-        eatTheChar();
-        return c;
-    }
-
+    /**
+     * This method is only used from the Constructor.
+     *
+     * @param c  Valid char from the current string.
+     */
     private void eatAllWhitespaces(char c) {
         while (isWhitespace(c)) {
             if (isNewLine(c)) {
@@ -58,6 +57,13 @@ class Parser implements Iterable<Token> {
         }
     }
 
+    /**
+     * This method is only used from the Constructor.
+     * Generates a number token.
+     *
+     * @param c Valid char from the current string.
+     * @return Token
+     */
     private Token getNumber(char c, boolean positiveNumber) throws ExpressionException {
         StringBuilder number = new StringBuilder();
         int storeColumn = column;
@@ -76,7 +82,8 @@ class Parser implements Iterable<Token> {
     }
 
     /**
-     * This function expects a valid starting char
+     * This method is only used from the Constructor.
+     * Generates an identifier token.
      *
      * @param c a valid alpha char
      * @return Token
@@ -94,12 +101,14 @@ class Parser implements Iterable<Token> {
         return new Token(TokenType.IDENTIFIER, identifier.toString(), line, storeColumn);
     }
 
+    /**
+     * Just a helper method to keep track of previous token and add the current to the list of tokens.
+     *
+     * @param token  Token to add to the tokens list.
+     */
     private void addToken(Token token) {
         tokens.add(token);
         lastToken = token.getType();
-    }
-
-    private void parse() throws ExpressionException {
     }
 
     Parser(String text) throws ExpressionException {

@@ -1,0 +1,326 @@
+Index: src/com/github/johanrg/expressionengine/Token.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/github/johanrg/expressionengine/Token.java	(revision 6aa6391c1a764f0f728b27f071c19a358271b4b9)
++++ src/com/github/johanrg/expressionengine/Token.java	(revision )
+@@ -45,12 +45,16 @@
+     public String toString() {
+         StringBuilder info = new StringBuilder();
+         info.append(type.toString());
++        info.append(" ");
+         if (type == TokenType.NUMBER) {
+-            info.append(" " + Double.toString(doubleNumber));
++            info.append(Double.toString(doubleNumber));
+         } else if (type == TokenType.IDENTIFIER) {
+-            info.append(" " + identifier);
++            info.append(identifier);
+         }
+-        info.append(" @" + Integer.toString(lineNumber) + "," + Integer.toString(columnNumber));
++        info.append(" @");
++        info.append(Integer.toString(lineNumber));
++        info.append(",");
++        info.append(Integer.toString(columnNumber));
+ 
+         return info.toString();
+     }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 6aa6391c1a764f0f728b27f071c19a358271b4b9)
++++ .idea/workspace.xml	(revision )
+@@ -2,14 +2,8 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/AstExpressionNode.java" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/johanrg/calculator/Main.java" afterPath="$PROJECT_DIR$/src/com/github/johanrg/calculator/Main.java" />
+-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/github/johanrg/calculator/expressionengine/Expression.java" afterPath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Expression.java" />
+-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/github/johanrg/calculator/expressionengine/Parser.java" afterPath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Parser.java" />
+-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/github/johanrg/calculator/expressionengine/ParserException.java" afterPath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/ParserException.java" />
+-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/github/johanrg/calculator/expressionengine/Token.java" afterPath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java" />
+-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/github/johanrg/calculator/expressionengine/TokenType.java" afterPath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/TokenType.java" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java" afterPath="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java" />
+     </list>
+     <ignored path="JavaFxApplication.iws" />
+     <ignored path=".idea/workspace.xml" />
+@@ -69,13 +63,13 @@
+     <favorites_list name="JavaFxApplication" />
+   </component>
+   <component name="FileEditorManager">
+-    <splitter split-orientation="horizontal" split-proportion="0.45">
++    <splitter split-orientation="horizontal" split-proportion="0.44791666">
+       <split-first>
+         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+             <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/calculator/Main.java">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state relative-caret-position="204">
++                <state relative-caret-position="-506">
+                   <caret line="27" column="16" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="16" />
+                   <folding>
+                     <element signature="imports" expanded="true" />
+@@ -87,8 +81,8 @@
+           <file leaf-file-name="Expression.java" pinned="false" current-in-tab="false">
+             <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Expression.java">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state relative-caret-position="136">
+-                  <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
++                <state relative-caret-position="255">
++                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                   <folding />
+                 </state>
+               </provider>
+@@ -118,10 +112,10 @@
+       </split-first>
+       <split-second>
+         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+-          <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
++          <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
+             <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Parser.java">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state relative-caret-position="-102">
++                <state relative-caret-position="17">
+                   <caret line="125" column="56" selection-start-line="125" selection-start-column="56" selection-end-line="125" selection-end-column="56" />
+                   <folding>
+                     <element signature="imports" expanded="true" />
+@@ -140,11 +134,11 @@
+               </provider>
+             </entry>
+           </file>
+-          <file leaf-file-name="Token.java" pinned="false" current-in-tab="true">
++          <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
+             <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state relative-caret-position="731">
+-                  <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
++                <state relative-caret-position="327">
++                  <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+                   <folding />
+                 </state>
+               </provider>
+@@ -193,7 +187,6 @@
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/calculator/expressionengine/Expression.java" />
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/calculator/expressionengine/Parser.java" />
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/calculator/Main.java" />
+-        <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java" />
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/A.java" />
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Ast.java" />
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/AstExpressionNode.java" />
+@@ -201,6 +194,7 @@
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Parser.java" />
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Expression.java" />
+         <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Lexer.java" />
++        <option value="$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java" />
+       </list>
+     </option>
+   </component>
+@@ -214,7 +208,7 @@
+   <component name="ProjectFrameBounds">
+     <option name="x" value="-8" />
+     <option name="y" value="-8" />
+-    <option name="width" value="1924" />
++    <option name="width" value="1936" />
+     <option name="height" value="1056" />
+   </component>
+   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+@@ -247,69 +241,12 @@
+       <foldersAlwaysOnTop value="true" />
+     </navigator>
+     <panes>
+-      <pane id="ProjectPane">
+-        <subPane>
+-          <PATH>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="Calculator" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+-            </PATH_ELEMENT>
+-          </PATH>
+-          <PATH>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="Calculator" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="Calculator" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-          </PATH>
+-          <PATH>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="Calculator" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="Calculator" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="src" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="johanrg" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="expressionengine" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-          </PATH>
+-          <PATH>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="Calculator" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="Calculator" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="src" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-            <PATH_ELEMENT>
+-              <option name="myItemId" value="johanrg" />
+-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+-            </PATH_ELEMENT>
+-          </PATH>
+-        </subPane>
+-      </pane>
++      <pane id="Scope" />
+       <pane id="PackagesPane" />
+       <pane id="Scratches" />
+-      <pane id="Scope" />
++      <pane id="ProjectPane">
++        <subPane />
++      </pane>
+     </panes>
+   </component>
+   <component name="PropertiesComponent">
+@@ -783,14 +720,15 @@
+       <workItem from="1464590489107" duration="4446000" />
+       <workItem from="1464596237736" duration="1028000" />
+       <workItem from="1464601411478" duration="12552000" />
++      <workItem from="1464642516380" duration="417000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TimeTrackingManager">
+-    <option name="totallyTimeSpent" value="61603000" />
++    <option name="totallyTimeSpent" value="62020000" />
+   </component>
+   <component name="ToolWindowManager">
+-    <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
++    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+     <editor active="true" />
+     <layout>
+       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+@@ -805,13 +743,13 @@
+       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12264151" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
++      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.122395836" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2114165" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2114165" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+@@ -1186,16 +1124,6 @@
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Parser.java">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="-102">
+-          <caret line="125" column="56" selection-start-line="125" selection-start-column="56" selection-end-line="125" selection-end-column="56" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-          </folding>
+-        </state>
+-      </provider>
+-    </entry>
+     <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/ParserException.java">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="119">
+@@ -1212,22 +1140,6 @@
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="731">
+-          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+-          <folding />
+-        </state>
+-      </provider>
+-    </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Expression.java">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="136">
+-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+-          <folding />
+-        </state>
+-      </provider>
+-    </entry>
+     <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/AstExpressionNode.java">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="102">
+@@ -1238,7 +1150,7 @@
+     </entry>
+     <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/calculator/Main.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="204">
++        <state relative-caret-position="-506">
+           <caret line="27" column="16" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="16" />
+           <folding>
+             <element signature="imports" expanded="true" />
+@@ -1246,11 +1158,37 @@
+         </state>
+       </provider>
+     </entry>
++    <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Expression.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="255">
++          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
+     <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Lexer.java">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="136">
+           <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+           <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Token.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="327">
++          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/com/github/johanrg/expressionengine/Parser.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="17">
++          <caret line="125" column="56" selection-start-line="125" selection-start-column="56" selection-end-line="125" selection-end-column="56" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+\ No newline at end of file
